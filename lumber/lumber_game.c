@@ -11,7 +11,7 @@ sprite_t* branch_left;
 sprite_t* branch_right;
 sprite_t* log;
 
-log_t p1_log[3];
+log_t p1_log[2];
 
 float p1_log_y = 0;
 
@@ -56,13 +56,11 @@ lumber_game_t lumber_game_create()
 	//end init input
 
 	//set log positions
-	p1_log[0].y = (2 - log->texture.Height);
-	p1_log[1].y = 2;
-	p1_log[2].y = 2 + log->texture.Height;
+	p1_log[0].y = (0 - log->texture.Height);
+	p1_log[1].y = 0;
 
 	p1_log[0].x = (120 - log->texture.Width);
 	p1_log[1].x = (120 - log->texture.Width);
-	p1_log[2].x = (120 - log->texture.Width);
 	//end set log positions
 
 	return game;
@@ -71,7 +69,7 @@ lumber_game_t lumber_game_create()
 void lumber_draw_p1()
 {
 	int i = 0;
-	for(i = 0; i < 3; i++)
+	for(i = 0; i < 2; i++)
 	{
 		sprite_draw(log, p1_log[i].x, p1_log[i].y);
 	}
@@ -92,7 +90,7 @@ void lumber_update(lumber_game_t* game)
 	input_update(1); //player two
 
 	int i = 0;
-	for(i = 0; i < 3; i++)
+	for(i = 0; i < 2; i++)
 	{
 		log_update(&(p1_log[i]));
 	}

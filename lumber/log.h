@@ -1,7 +1,7 @@
 #ifndef _LOG_H_
 #define _LOG_H_
 
-#define LOG_HEIGHT 212
+#define LOG_HEIGHT 480
 
 typedef struct log_t {
 
