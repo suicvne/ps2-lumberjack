@@ -11,7 +11,7 @@ sprite_t* branch_left;
 sprite_t* branch_right;
 sprite_t* log;
 
-#define LOG_COUNT 3
+#define LOG_COUNT 2
 log_t p1_log[LOG_COUNT];
 
 float p1_log_y = 0;

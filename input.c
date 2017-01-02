@@ -231,6 +231,11 @@ void input_initialize()
 
 void input_update(int port)
 {
+    if((port == 1) && input_player_mode == INPUT_SINGLE_PLAYER)
+    {
+        return; //wtf u doin updating player 2 in single player mode
+    }
+
 	int i = 0;
 	int slot = 0;
 	int ret = padGetState(port, 0);
