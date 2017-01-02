@@ -9,7 +9,7 @@
 
 #EE_ERL = cpp-hello.erl
 EE_BIN = cpp-hello.elf
-EE_OBJS = main.o lumber/log.o lumber/lumber_game.o globals.o sprite.o input.o 
+EE_OBJS = main.o lumber/log.o lumber/branch.o lumber/lumber_game.o globals.o sprite.o input.o 
 EE_INCS := -I$(PS2DEV)/gsKit/include
 EE_LDFLAGS := -L$(PS2DEV)/gsKit/lib -L$(PS2DEV)/libjpg -L$(PS2SDK)/sbv/lib -L$(PS2DEV)/libcdvd/lib -L$(PS2SDK)/ports/lib -s
 EE_LIBS = -lgskit_toolkit -lgskit -ldmakit -lcdvd -lmc -lhdd -lfileXio -lpatches -lpoweroff -ldebug -lpad -ltiff -lpng -lm -lz

@@ -2,6 +2,7 @@
 
 #include "../input.h"
 #include "log.h"
+#include "branch.h"
 
 /**
 Globals
@@ -13,6 +14,9 @@ sprite_t* log;
 
 #define LOG_COUNT 2
 log_t p1_log[LOG_COUNT];
+
+#define MAX_BRANCHES 6
+branch_t p1_branches[MAX_BRANCHES];
 
 float p1_log_y = 0;
 
@@ -28,6 +32,8 @@ Private Functions
 
 void lumber_draw_p1(); //draw p1 and his/her tree
 void lumber_draw_p2(); //draw p2 and his/her tree
+
+void init_branches();
 
 /**
 End Private Functions
@@ -71,7 +77,20 @@ lumber_game_t lumber_game_create()
 	
 	//end set log positions
 
+	init_branches();
+
 	return game;
+}
+
+void init_branches()
+{
+	int i;
+	for(i = 0; i < MAX_BRANCHES; i++)
+	{
+		//TODO: set various positions 
+		p1_branches[i].side = RIGHT;
+		p1_branches[i].player = P1;
+	}
 }
 
 void lumber_draw_p1()
@@ -80,6 +99,12 @@ void lumber_draw_p1()
 	for(i = 0; i < LOG_COUNT; i++)
 	{
 		sprite_draw(log, p1_log[i].x, p1_log[i].y);
+	}
+
+	for(i = 0; i < MAX_BRANCHES; i++)
+	{
+		sprite_t* sprite = (p1_branches[i].side == LEFT) ? branch_left : branch_right;
+		branch_draw(&p1_branches[i], sprite);
 	}
 }
 
@@ -101,5 +126,10 @@ void lumber_update(lumber_game_t* game)
 	for(i = 0; i < LOG_COUNT; i++)
 	{
 		log_update(&(p1_log[i]));
+	}
+
+	for(i = 0; i < MAX_BRANCHES; i++)
+	{
+		branch_update(&(p1_branches[i]));
 	}
 }
